@@ -1,0 +1,14 @@
+{
+  "name": "climateshield-ai",
+  "private": true,
+  "version": "1.0.0",
+  "description": "ClimateShield AI - run the FastAPI backend and Vite frontend from the project root",
+  "scripts": {
+    "setup": "npm install --prefix frontend && python -m pip install -r backend/requirements.txt && npm run seed",
+    "seed": "cd backend && python -m app.seed",
+    "backend": "cd backend && python run.py",
+    "frontend": "npm run dev --prefix frontend",
+    "dev": "npx --yes concurrently -k -n api,web -c gray,white \"npm run backend\" \"npm run frontend\"",
+    "build": "npm run build --prefix frontend"
+  }
+}
